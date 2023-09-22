@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import time
-
+import datetime
 import numpy as np
 
 import streamlit as st
@@ -42,15 +42,16 @@ def plotting_demo():
     st.button("Re-run")
 
 
-st.set_page_config(page_title="Plotting Demo", page_icon="📈")
-st.markdown("# Plotting Demo")
-st.sidebar.header("Plotting Demo")
+st.set_page_config(page_title="Number of wins over time", page_icon="📈")
+st.markdown("# Number of wins over time")
+st.sidebar.header("Number of wins over time")
 st.write(
-    """This demo illustrates a combination of plotting and animation with
-Streamlit. We're generating a bunch of random numbers in a loop for around
-5 seconds. Enjoy!"""
+    """Filter on time window:"""
 )
+
+d = st.date_input("Start:", datetime.datetime.now())
+e = st.date_input("End:", datetime.datetime.now())
 
 plotting_demo()
 
-show_code(plotting_demo)
+#show_code(plotting_demo)
